@@ -48,11 +48,13 @@ Bubble::~Bubble()
 ///////////////////////////////////////////////////////////////////////////////
 void Bubble::thread(void)
 {
-	const unsigned int ADDR_MEM_SIZE = 0;
+	const unsigned int ADDR_MEM_SIZE = 0x00;
+	const unsigned int ADDR_MEM_DATA_START = 0x01;
 
 	// Variables
 	std::vector<unsigned int> unsorted_data;
 	int mem_size;
+    unsigned int word_last_read;
 
 	// 1ere lecture: nombre d'éléments à trier
 	/*
@@ -60,7 +62,7 @@ void Bubble::thread(void)
 	À compléter
 
 	*/
-	mem_size = readPort.Read(ADDR_MEM_SIZE);
+	mem_size = readPort->Read(ADDR_MEM_SIZE);
 
 	// Lecture des éléments à trier
 	/*
@@ -68,8 +70,9 @@ void Bubble::thread(void)
 	À compléter
 
 	*/
-	for (int i = 1; i <= mem_size; i++) {
-		unsorted_data.push_back(readPort.Read(i));
+	for (int i = ADDR_MEM_DATA_START; i <= mem_size; i++) {
+        word_last_read = readPort->Read(i);
+		unsorted_data.push_back(word_last_read);
 	}
 
 	//Appel à bubble sort
@@ -78,7 +81,7 @@ void Bubble::thread(void)
 	À compléter
 
 	*/
-	bubbleSort(unsorted_data, mem_size);
+	bubbleSort(unsorted_data.data(), mem_size);
 
 	// Arrêt de la simulation
 	sc_stop();
@@ -99,9 +102,10 @@ void Bubble::bubbleSort(unsigned int *ptr, int counter)
 	À compléter
 
 	*/
+    // Affichage 4-par-4 pour plus de lisibilité sur une ligne
 	printf("Unsorted data input:\n");
 	for (int i = 0; i < counter; i += 4) {
-		printf("%d: %d %d %d %d\n", counter, ptr[i], ptr[i + 1], ptr[i + 2], ptr[i + 3]);
+		printf("%d: %u %u %u %u\n", counter, ptr[i], ptr[i + 1], ptr[i + 2], ptr[i + 3]);
 	}
 
 	// Tri
@@ -120,6 +124,6 @@ void Bubble::bubbleSort(unsigned int *ptr, int counter)
 	*/
 	printf("Sorted data output (ascending):\n");
 	for (int i = 0; i < counter; i += 4) {
-		printf("%d: %d %d %d %d\n", counter, ptr[i], ptr[i + 1], ptr[i + 2], ptr[i + 3]);
+		printf("%d: %u %u %u %u\n", counter, ptr[i], ptr[i + 1], ptr[i + 2], ptr[i + 3]);
 	}
 }
