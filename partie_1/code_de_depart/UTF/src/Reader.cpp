@@ -36,4 +36,5 @@ unsigned int Reader::Read(unsigned int uiAddr)
 	À compléter
 	
 	*/
+	return dataPortRAM->Read(uiAddr);
 }
