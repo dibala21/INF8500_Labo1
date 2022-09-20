@@ -21,7 +21,7 @@ Bubble::Bubble( sc_module_name zName )
 	
 	*/
 
-	SC_THREAD(thread);
+	SC_THREAD(interface);
 }
 
 
@@ -43,10 +43,10 @@ Bubble::~Bubble()
 
 ///////////////////////////////////////////////////////////////////////////////
 //
-//	thread
+//	Interface avec le module Reader: sc_thread ou sc_method
 //
 ///////////////////////////////////////////////////////////////////////////////
-void Bubble::thread(void)
+void Bubble::interface(void)
 {
 	const unsigned int ADDR_MEM_SIZE = 0x00;
 	const unsigned int ADDR_MEM_DATA_START = 0x01;

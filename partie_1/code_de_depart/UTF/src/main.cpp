@@ -20,9 +20,6 @@ bool m_bError = false;
 ///////////////////////////////////////////////////////////////////////////////
 int sc_main(int arg_count, char **arg_value)
 {
-	// Variables
-	int sim_units = 2; //SC_NS 
-
 	// Instanciation des composants
 	Bubble iBubble("Bubble");
 	Reader iReader("Reader");
