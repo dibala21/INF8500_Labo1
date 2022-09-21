@@ -23,6 +23,16 @@ class Reader : public sc_module
 		À compléter
 		
 		*/
+		sc_in_clk				clk;
+
+		sc_port<LMBIF>			dataPortRAM;
+
+		sc_out<unsigned int>	data;
+		sc_in<unsigned int>		address;
+
+		sc_out<bool>			ack;
+		sc_in<bool>				request;
+
 		
 		// Constructor
 		Reader( sc_module_name zName );

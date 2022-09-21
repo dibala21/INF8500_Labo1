@@ -1,0 +1,6 @@
+﻿  Bubble.cpp
+  Unknown compiler version - please run the configure tests and report the results
+C:\code_de_depart\code_de_depart\UTF\Bubble.cpp(71,20): warning C4018: '<': signed/unsigned mismatch
+C:\code_de_depart\code_de_depart\UTF\Bubble.cpp(121,33): warning C4018: '<': signed/unsigned mismatch
+C:\code_de_depart\code_de_depart\UTF\Bubble.cpp(147,20): warning C4018: '<': signed/unsigned mismatch
+  UTF.vcxproj -> C:\code_de_depart\code_de_depart\UTF\x64\Debug\UTF.exe
