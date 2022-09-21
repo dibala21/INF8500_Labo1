@@ -1,9 +1,0 @@
-﻿  RAM.cpp
-  Unknown compiler version - please run the configure tests and report the results
-C:\code_de_depart\code_de_depart\AT\src\RAM.cpp(121,45): warning C4311: 'type cast': pointer truncation from 'void *' to 'long'
-C:\code_de_depart\code_de_depart\AT\src\RAM.cpp(121,45): warning C4302: 'type cast': truncation from 'void *' to 'long'
-C:\code_de_depart\code_de_depart\AT\src\RAM.cpp(121,54): warning C4312: 'type cast': conversion from 'unsigned long' to 'void *' of greater size
-  Reader.cpp
-  Unknown compiler version - please run the configure tests and report the results
-  Generating Code...
-  AT.vcxproj -> C:\code_de_depart\code_de_depart\AT\AT\x64\Debug\AT.exe

@@ -18,8 +18,6 @@ Reader::Reader(sc_module_name zName)
 	À compléter
 	
 	*/
-	SC_THREAD(interface);
-	//sensitive << clk.pos(); //au niveau du RTL ?
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -38,8 +36,6 @@ Reader::~Reader()
 ///////////////////////////////////////////////////////////////////////////////
 void Reader::interface(void)
 {
-	unsigned int  DataAdress;
-	unsigned int DataToWrite;
 
 	// Boucle infinie
 	while(1)
@@ -49,19 +45,5 @@ void Reader::interface(void)
 		À compléter
 		
 		*/
-		
-		wait( clk.posedge_event() );
-
-		if (request.read()) {
-
-			DataAdress = address.read();
-			DataToWrite = dataPortRAM->Read(DataAdress);
-			data.write(DataToWrite);
-			ack.write(true);
-			wait(clk.posedge_event());
-			ack.write(false);
-
-		}
-		
 	}
 }

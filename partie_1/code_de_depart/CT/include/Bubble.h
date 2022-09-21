@@ -20,17 +20,11 @@ class Bubble : public sc_module
 {
 	public: 
 		// Ports    
-		sc_in_clk				clk;
 		/*
-
+		
 		À compléter
-
+		
 		*/
-		sc_out<unsigned int> 	address;
-		sc_in<unsigned int> 	data;
-
-		sc_out<bool> 			request;
-		sc_in<bool> 			ack;
 	
 		// Constructor
 		Bubble( sc_module_name zName );
@@ -50,9 +44,6 @@ class Bubble : public sc_module
 		À compléter
 		
 		*/
-		enum State {WaitingDataSize, ReadingDataSize, WaitingData, ReadingData, Sorting, Printing
-		};
-		State CurrentState; 
 };
 
 #endif
