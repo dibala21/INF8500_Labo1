@@ -30,6 +30,8 @@ int sc_main(int arg_count, char **arg_value)
 	À compléter
 	
 	*/
+	Reader iReader("Reader");
+	DataRAM iDataRAM( "DataRAM", "memory/mem.hex", RAMSIZE, false);
 	
 	// Signaux
 	/*
@@ -37,14 +39,31 @@ int sc_main(int arg_count, char **arg_value)
 	À compléter
 	
 	*/
+	sc_signal<unsigned int> data;
+	sc_signal<unsigned int> address;
+	sc_signal<bool> ack;
+	sc_signal<bool> request;
 	
 	// Connexion des ports
-	iBubble.clk(sClk);
 	/*
 	
 	À compléter
 	
 	*/
+	// Reader
+	iReader.clk(sClk);
+	iReader.dataPortRAM(iDataRAM);
+	iReader.data(data);
+	iReader.address(address);
+	iReader.ack(ack);
+	iReader.request(request);
+
+	// Bubble
+	iBubble.clk(sClk);
+	iBubble.address(address);
+	iBubble.data(data);
+	iBubble.request(request);
+	iBubble.ack(ack);
 	
 	// Démarrage de l'application
 	if (!m_bError)
